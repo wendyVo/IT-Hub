@@ -1,4 +1,5 @@
 import React from "react";
+import PostsList from "../components/PostList";
 import ResponsiveContainer from "../components/ResponsiveLayout";
 // import { Col, Row, Container } from "../components/Grid";
 // import CreatePostForm from "../components/CreatePostForm";
@@ -6,7 +7,9 @@ import ResponsiveContainer from "../components/ResponsiveLayout";
 
 const Home = () => {
   return (
-    <ResponsiveContainer />
+    <ResponsiveContainer>
+      <PostsList />
+    </ResponsiveContainer>
   );
 };
 
