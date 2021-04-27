@@ -43,17 +43,17 @@ function PostsList() {
         <List>
           {state.posts.map(post => (
             <ListItem 
+            id={post._id}
             key={post._id} 
             postTitle= {post.title}
             author= {post.author}
             body= {post.body}
             date= {post.date}>
-              <Link to={"/posts/" + post._id}>
+              
                 
-                postTitle= {post.title},
-                 author= {post.author}
 
-              </Link>
+
+              
               {/* <DeleteBtn onClick={() => removePost(post._id)} /> */}
             </ListItem>
           ))}

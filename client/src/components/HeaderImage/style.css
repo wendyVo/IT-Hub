@@ -1,0 +1,8 @@
+.ui.message {
+  background-color: #eeeeee;
+  box-shadow: none;
+  border-radius: 0;
+  margin-bottom: 4rem;
+  padding-top: 6rem;
+  padding-bottom: 4rem;
+}

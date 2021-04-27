@@ -1,6 +1,7 @@
 import React from "react";
 import { Image, Item } from "semantic-ui-react";
 import Moment from "react-moment";
+import {Link} from "react-router-dom";
 
 
 // This file exports both the List and ListItem components
@@ -19,7 +20,9 @@ export function ListItem(props) {
     <Item.Image size='tiny' src='https://react.semantic-ui.com/images/wireframe/image.png' />
 
     <Item.Content>
-      <Item.Header as='a'>{props.postTitle}</Item.Header>
+    <Link to={"/posts/" + props.id}>
+      <Item.Header>{props.postTitle}</Item.Header>
+      </Link>
       <Item.Meta><Moment format="DD-MM-YYYY">
       {props.date}
             </Moment></Item.Meta>
