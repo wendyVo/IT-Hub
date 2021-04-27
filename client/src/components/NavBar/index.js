@@ -1,8 +1,6 @@
-import { createMedia } from "@artsy/fresnel";
 import React, {Component} from "react";
-import { render } from "react-dom";
 import { Container, Icon, Image, Menu, Dropdown, Grid, Button } from "semantic-ui-react";
-import HeaderImage from "../HeaderImage";
+import "./style.css";
 
 class NavBar extends Component {
   state = {
@@ -46,6 +44,18 @@ class NavBar extends Component {
                   <Dropdown.Item as="a">One more seperated link</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
+               <Menu.Item position="right">
+                  <Button as="a" inverted>
+                    Log in
+                  </Button>
+                  <Button
+                    as="a"
+                    inverted
+                    style={{ marginLeft: "0.5em" }}
+                  >
+                    Sign Up
+                  </Button>
+                </Menu.Item>
             </Menu>
           </Container>
         </Grid>
@@ -79,6 +89,8 @@ class NavBar extends Component {
               </Menu.Item>
               <Menu.Item as="a">About</Menu.Item>
               <Menu.Item as="a">Contact</Menu.Item>
+              <Menu.Item as="a">Login</Menu.Item>
+              <Menu.Item as="a">SignUp</Menu.Item>
               
             </Menu>
           </Menu>
