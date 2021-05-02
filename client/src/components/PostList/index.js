@@ -49,11 +49,6 @@ function PostsList() {
             author= {post.author}
             body= {post.body}
             date= {post.date}>
-              
-                
-
-
-              
               {/* <DeleteBtn onClick={() => removePost(post._id)} /> */}
             </ListItem>
           ))}

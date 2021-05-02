@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import { Container, Icon, Image, Menu, Dropdown, Grid, Button } from "semantic-ui-react";
+import {Link} from "react-router-dom";
 import "./style.css";
 
 class NavBar extends Component {
@@ -46,14 +47,14 @@ class NavBar extends Component {
               </Dropdown>
                <Menu.Item position="right">
                   <Button as="a" inverted>
-                    Log in
+                    <Link to="/login" >Log in</Link>
                   </Button>
                   <Button
                     as="a"
                     inverted
                     style={{ marginLeft: "0.5em" }}
                   >
-                    Sign Up
+                    <Link to="/signup" >Sign Up</Link>
                   </Button>
                 </Menu.Item>
             </Menu>

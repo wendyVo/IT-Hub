@@ -1,6 +1,8 @@
+const passport = require("../../../config/passport");
 const router = require("express").Router();
+const isAuthenticated = require("../../../config/isAuthenticated");
 // Register User
-router.post('/api/signup', function(req, res){
+router.post('/signup', function(req, res){
     var password = req.body.password;
     var password2 = req.body.password2;
   
@@ -22,7 +24,7 @@ router.post('/api/signup', function(req, res){
   });
 
   // Endpoint to login
-router.post("/api/login", passport.authenticate("local"), (req, res) => {
+router.post("/login", passport.authenticate("local"), (req, res) => {
   const loginUser = {
     email: req.body.email,
     password: req.body.password,
@@ -32,7 +34,7 @@ router.post("/api/login", passport.authenticate("local"), (req, res) => {
 });
 
 // Endpoint to get current user
-router.get("/api/user", isAuthenticated, (req, res) => {
+router.get("/user", isAuthenticated, (req, res) => {
   if (!req.user) {
     res.json({});
   } else {
@@ -47,7 +49,9 @@ router.get("/api/user", isAuthenticated, (req, res) => {
 });
 
 // Endpoint to logout
-app.get("/logout", (req, res) => {
+router.get("/logout", (req, res) => {
   req.logout();
   res.send(null);
 });
+
+module.exports = router;

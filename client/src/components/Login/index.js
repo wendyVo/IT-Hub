@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {
     Button,
     Form,
@@ -7,9 +7,23 @@ import {
     Message,
     Segment
   } from "semantic-ui-react";
+  import axios from "axios";
 
-class Login extends Component {
-  render() {
+
+function Login() {
+  const [email, setEmail] = useState()
+  const [password, setPassword] = useState()
+
+  const handleSubmit = (e) => {
+      e.preventDefault();
+      const user = {email, password}        
+      axios.post("/api/login", user)
+      .then(res => {
+          console.log(res);
+          window.location = "/";
+      })
+  }
+
     return (
 <Grid textAlign="center" verticalAlign="middle">
 <Grid.Column style={{ maxWidth: 450 }}>
@@ -17,13 +31,14 @@ class Login extends Component {
     <img src="/static/images/logo.png" alt="logo" className="image" />{" "}
     Log-in to your account
   </Header>
-  <Form size="large">
+  <Form size="large" onSubmit={handleSubmit}>
     <Segment stacked>
       <Form.Input
         fluid
         icon="user"
         iconPosition="left"
         placeholder="E-mail address"
+        onChange={(e) => setEmail(e.target.value.trim())}
       />
       <Form.Input
         fluid
@@ -31,6 +46,7 @@ class Login extends Component {
         iconPosition="left"
         placeholder="Password"
         type="password"
+        onChange={(e) => setPassword(e.target.value.trim())}
       />
       <Button color="teal" fluid size="large">
         Login
@@ -45,6 +61,6 @@ class Login extends Component {
   
     );
 };
-};
+
 
 export default Login;
