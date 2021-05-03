@@ -39,7 +39,14 @@ if (process.env.NODE_ENV === "production") {
 // app.use(useRouter);
 app.use(router);
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/reactcms");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/itHub",
+{
+useNewUrlParser: true,
+useUnifiedTopology: true,
+useCreateIndex: true,
+useFindAndModify: false
+}
+);
 
 // Start the API server
 app.listen(PORT, function() {

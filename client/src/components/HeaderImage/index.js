@@ -2,16 +2,9 @@ import React from "react";
 import {
     Button,
     Container,
-    Dropdown,
-    Grid,
     Header,
-    Icon,
-    Image,
-    Menu,
-    Segment,
     Message
   } from "semantic-ui-react";
-import Slider from "react-slick";
 // import "./style.css"
 
 function HeaderImage() {
@@ -34,8 +27,4 @@ function HeaderImage() {
   </Message>
     )
     }
-  
-
-  
-
 export default HeaderImage;

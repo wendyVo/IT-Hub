@@ -8,6 +8,7 @@ import {
     Segment
   } from "semantic-ui-react";
   import axios from "axios";
+  import "./style.css";
 
 
 function Login() {
@@ -25,7 +26,7 @@ function Login() {
   }
 
     return (
-<Grid textAlign="center" verticalAlign="middle">
+<Grid className="login-container" textAlign="center" verticalAlign="middle"  >
 <Grid.Column style={{ maxWidth: 450 }}>
   <Header as="h2" color="teal" textAlign="center">
     <img src="/static/images/logo.png" alt="logo" className="image" />{" "}
