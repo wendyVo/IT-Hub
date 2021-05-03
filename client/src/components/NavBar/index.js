@@ -27,14 +27,14 @@ class NavBar extends Component {
           <Container>
             <Menu borderless inverted fluid fixed="top">
               <Menu.Item header as="a">
-                Project Name
+                IT Hub
               </Menu.Item>
-              <Menu.Item active as="a">
-                Home
+
+              <Menu.Item as="a">
+              <Link to="/home" >Home</Link>
               </Menu.Item>
-              <Menu.Item as="a">About</Menu.Item>
-              <Menu.Item as="a">Contact</Menu.Item>
-              <Dropdown text="Dropdown" className="item">
+              <Menu.Item as="a">Post</Menu.Item>
+              {/* <Dropdown text="Dropdown" className="item">
                 <Dropdown.Menu>
                   <Dropdown.Item as="a">Action</Dropdown.Item>
                   <Dropdown.Item as="a">Another action</Dropdown.Item>
@@ -44,7 +44,7 @@ class NavBar extends Component {
                   <Dropdown.Item as="a">Seperated link</Dropdown.Item>
                   <Dropdown.Item as="a">One more seperated link</Dropdown.Item>
                 </Dropdown.Menu>
-              </Dropdown>
+              </Dropdown> */}
                <Menu.Item position="right">
                   <Button as="a" inverted>
                     <Link to="/login" >Log in</Link>
