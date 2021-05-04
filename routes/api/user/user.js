@@ -1,14 +1,16 @@
 const passport = require("../../../config/passport");
 const router = require("express").Router();
 const isAuthenticated = require("../../../config/isAuthenticated");
+const User = require("../../../models/user");
 // Register User
 router.post('/signup', function(req, res){
+  console.log("Signup route", req.body)
     var password = req.body.password;
     var password2 = req.body.password2;
   
     if (password == password2){
       var newUser = new User({
-        name: req.body.name,
+        name: req.body.username,
         email: req.body.email,
         username: req.body.username,
         password: req.body.password

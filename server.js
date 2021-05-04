@@ -1,6 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const router = require("./routes");
+const routes = require("./routes");
 // const postRouter = require("./routes/api/post");
 // const useRouter = require("./routes/api/user");
 const app = express();
@@ -37,7 +37,7 @@ if (process.env.NODE_ENV === "production") {
 // app.use(postRouter);
 
 // app.use(useRouter);
-app.use(router);
+app.use(routes);
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/itHub",
 {

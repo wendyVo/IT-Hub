@@ -8,6 +8,7 @@ import {
     Message,
     Segment
   } from "semantic-ui-react";
+  import {Link} from "react-router-dom";
 
 function SignUp() {
     const [username, setUsername] = useState();
@@ -24,7 +25,7 @@ function SignUp() {
           password2,
         };
 
-        axios.post("/api/signup", user).then((res) => {
+        axios.post("/api/user/signup", user).then((res) => {
             window.location = "/login";
           });
         };
@@ -43,6 +44,7 @@ function SignUp() {
                 //     content: 'Please enter a valid email address',
                 //     pointing: 'below',
                 //   }} 
+                onChange={(e) => setEmail(e.target.value)}
                   placeholder="E-mail"  />
                 <Form.Input label="Password"  onChange={(e) => setPassword(e.target.value)} placeholder="Password" type="password" />
                 <Form.Input label="Confirm Password"  onChange={(e) => setPassword2(e.target.value)} placeholder="Confirm Password" type="password" />
@@ -52,7 +54,7 @@ function SignUp() {
             </Segment>
           </Form>
           <Message>
-            Already created an account <a href='#'>Login</a>
+            Already created an account <Link to="/login">Login</Link>
           </Message>
         </Grid.Column>
       </Grid>

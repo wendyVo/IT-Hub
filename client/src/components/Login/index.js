@@ -18,10 +18,10 @@ function Login() {
   const handleSubmit = (e) => {
       e.preventDefault();
       const user = {email, password}        
-      axios.post("/api/login", user)
+      axios.post("/api/user/login", user)
       .then(res => {
           console.log(res);
-          window.location = "/";
+          window.location = "/dashboard";
       })
   }
 

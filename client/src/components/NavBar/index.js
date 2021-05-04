@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import { Container, Icon, Image, Menu, Dropdown, Grid, Button } from "semantic-ui-react";
 import {Link} from "react-router-dom";
 import "./style.css";
+import axios from "axios";
 
 class NavBar extends Component {
   state = {
@@ -20,6 +21,14 @@ class NavBar extends Component {
 
     this.setState(newState);
   };
+  handleSignOut = () => {
+    axios.get("/api/user/logout")
+    .then(res => {
+      console.log(res);
+      window.location = "/";
+  })
+  }
+
   render() {
     return (
       <React.Fragment>
@@ -34,6 +43,9 @@ class NavBar extends Component {
               <Link to="/home" >Home</Link>
               </Menu.Item>
               <Menu.Item as="a">Post</Menu.Item>
+              <Menu.Item as="a">
+                <Link to="/dashboard" >Dashboard</Link>
+              </Menu.Item>
               {/* <Dropdown text="Dropdown" className="item">
                 <Dropdown.Menu>
                   <Dropdown.Item as="a">Action</Dropdown.Item>
@@ -55,6 +67,13 @@ class NavBar extends Component {
                     style={{ marginLeft: "0.5em" }}
                   >
                     <Link to="/signup" >Sign Up</Link>
+                  </Button>
+                  <Button
+                    as="a"
+                    inverted
+                    style={{ marginLeft: "0.5em" }}
+                  >
+                    <a onClick={this.handleSignOut} >Sign Out</a>
                   </Button>
                 </Menu.Item>
             </Menu>

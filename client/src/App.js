@@ -6,7 +6,9 @@ import NoMatch from "./pages/NoMatch";
 import { StoreProvider } from "./utils/GlobalState";
 import FavoritesList from "./pages/FavoritesList";
 import LoginPage from "./pages/LoginPage";
-import SignUp from "./components/Signup";
+import SignUpPage from "./pages/SignupPage";
+import Dashboard from "./pages/Dashboard";
+import CreatePostForm from "./components/CreatePost";
 
 function App() {
   return (
@@ -20,7 +22,9 @@ function App() {
             {/* /* <Route exact path="/favorites" component={FavoritesList} /> */}
             <Route exact path="/posts/:id" component={Detail} />
             <Route exact path="/login" component={LoginPage} />
-            <Route exact path="/signup" component={SignUp} />
+            <Route exact path="/signup" component={SignUpPage} />
+            <Route exact path="/dashboard" component={Dashboard} />
+            <Route exact path="/create-post" component={CreatePostForm}/>
              {/* <Route component={NoMatch} />  */}
             
           </Switch>
