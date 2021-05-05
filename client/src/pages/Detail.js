@@ -3,7 +3,6 @@ import API from "../utils/API";
 import { useStoreContext } from "../utils/GlobalState";
 import { SET_CURRENT_POST, ADD_FAVORITE, REMOVE_FAVORITE } from "../utils/actions";
 import {Container, Header} from "semantic-ui-react";
-import NavBar from "../components/NavBar";
 
 const Detail = props => {
   const [state, dispatch] = useStoreContext();
@@ -31,7 +30,7 @@ const Detail = props => {
   return (
     <>{state.currentPost ? (
       <>
-     <NavBar />
+     
         <Container text style={{ marginTop: '7em' }}>
       <Header as='h1'>{state.currentPost.title} by {state.currentPost.author}</Header>
       <p>{state.currentPost.body}</p>

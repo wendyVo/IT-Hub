@@ -25,6 +25,47 @@ router.post('/signup', function(req, res){
     }
   });
 
+    // //if too many errors, display errors
+    // if(errors.length > 0) {
+    //   res.render("signup", {
+    //     errors,
+    //     name,
+    //     email,
+    //     password,
+    //     password2
+    //   });
+    // } else {
+    //   //Validation passed
+    //   User.findOne({ email: email})
+    //     .then(user => {
+    //       if(user) {
+    //         //Users exists
+    //         errors.push({ msg: "Email is already registered! "})
+    //         res.render("signup", {
+    //           errors,
+    //           name,
+    //           email,
+    //           password,
+    //           password2
+    //         });
+    //       } else {
+    //         const newUser = new User({
+    //           name: req.body.name,
+    //           email: req.body.email,
+    //           username: req.body.username,
+    //           password: req.body.password
+    //         });
+    //         User.createUser(newUser, function(err, user){
+    //           if(err) throw err;
+    //           res.send(user).end()
+    //         });
+    //       }
+    //     })
+    // }
+  
+
+
+
   // Endpoint to login
 router.post("/login", passport.authenticate("local"), (req, res) => {
   const loginUser = {
@@ -38,7 +79,9 @@ router.post("/login", passport.authenticate("local"), (req, res) => {
 // Endpoint to get current user
 router.get("/user", isAuthenticated, (req, res) => {
   if (!req.user) {
-    res.json({});
+    res.json({
+      error:"User not found"
+    });
   } else {
     User.findById({ _id: req.user.id })
       .populate("images")

@@ -9,13 +9,15 @@ import LoginPage from "./pages/LoginPage";
 import SignUpPage from "./pages/SignupPage";
 import Dashboard from "./pages/Dashboard";
 import CreatePostForm from "./components/CreatePost";
+import NavBar from "./components/NavBar";
+
 
 function App() {
   return (
     <Router>
       <div>
         <StoreProvider>
-          {/* <Nav /> */}
+          <NavBar />
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/home" component={Home} />

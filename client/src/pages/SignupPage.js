@@ -1,14 +1,12 @@
 import React from "react";
-import MainNav from "../components/NavBar";
 import SignUp from "../components/Signup"
-import { Container } from "semantic-ui-react";
+import Layout from "../components/Layout";
 
 function SignupPage() {
   return (
-    <Container>
-    <MainNav />
+    <Layout>
     <SignUp />
-    </Container>
+    </Layout>
   );
 };
 

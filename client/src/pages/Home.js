@@ -6,11 +6,13 @@ import PostsList from "../components/PostList";
 
 function Home() {
   return (
+    <>
+    <HeaderImage />
     <Layout>
     <NavBar />
-    <HeaderImage />
     <PostsList />
     </Layout>
+    </>
   );
 };
 

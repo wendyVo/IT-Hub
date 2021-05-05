@@ -3,7 +3,7 @@ import {Container, Header, Button, Grid} from "semantic-ui-react";
 import {Link} from "react-router-dom";
 import NavBar from "../components/NavBar";
 
-function Dashboard() {
+function Dashboard({title}) {
     return (
         <Container>
             <NavBar />
@@ -11,7 +11,7 @@ function Dashboard() {
           textAlign: "center",
           marginTop: "5em",
         }}>
-            <Header as="h2">User Dashboard</Header>
+            <Header as="h2">{title} Dashboard</Header>
             <Button primary>
                 <Link to="/create-post">Create Post</Link>
             </Button>

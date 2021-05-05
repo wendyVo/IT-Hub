@@ -5,26 +5,31 @@ import {
     Header,
     Message
   } from "semantic-ui-react";
-// import "./style.css"
+  import Particle from "../../config/Particle";
+import "./style.css";
+import bannerImage from "../../assets/images/bannerImage.jpg";
+
 
 function HeaderImage() {
     return (
-    <Message size="massive">
-    <Container>
-      <Header size="huge" as="h1">
-        Hello, world!
-      </Header>
-      <p>
-        This is a template for a simple marketing or informational
-        website. It includes a large callout called a jumbotron and three
-        supporting pieces of content. Use it as a starting point to create
-        something more unique.
-      </p>
-      <Button size="large" primary>
-        Learn more &raquo;
-      </Button>
-    </Container>
-  </Message>
-    )
+		<Message size="massive" style={{ position: "relative", overflow: "hidden", 
+		backgroundColor: "black"}}>
+			<div style={{ position: "absolute", width:"100%"}} className="particle">
+			<Particle />
+			</div>
+          <Container style={{marginBottom: "6rem",marginTop: "5rem"}}>
+            <Header size="huge" as="h1" inverted >
+              IT Hub
+            </Header>
+            <p style={{color: "#ffffff"}}>
+              Places where Developer can share their Posts
+            </p>
+            <Button size="large" primary>
+              Learn more &raquo;
+            </Button>
+          </Container>
+		  
+        </Message>
+	); 
     }
 export default HeaderImage;

@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import { Container, Icon, Image, Menu, Dropdown, Grid, Button } from "semantic-ui-react";
+import { Container, Icon, Menu, Grid, Button } from "semantic-ui-react";
 import {Link} from "react-router-dom";
 import "./style.css";
 import axios from "axios";
@@ -10,6 +10,7 @@ class NavBar extends Component {
       display: "none"
     }
   };
+  
 
   handleToggleDropdownMenu = () => {
     let newState = Object.assign({}, this.state);
@@ -43,9 +44,10 @@ class NavBar extends Component {
               <Link to="/home" >Home</Link>
               </Menu.Item>
               <Menu.Item as="a">Post</Menu.Item>
-              <Menu.Item as="a">
-                <Link to="/dashboard" >Dashboard</Link>
+              <Menu.Item as="a" >
+                <Link to="/dashboard">Dashboard</Link>
               </Menu.Item>
+              
               {/* <Dropdown text="Dropdown" className="item">
                 <Dropdown.Menu>
                   <Dropdown.Item as="a">Action</Dropdown.Item>
