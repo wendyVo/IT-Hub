@@ -3,7 +3,17 @@ import {Container, Header, Button, Grid} from "semantic-ui-react";
 import {Link} from "react-router-dom";
 import NavBar from "../components/NavBar";
 
-function Dashboard({title}) {
+const Dashboard =  ({
+    getCurrentProfile,
+    deleteAcount,
+    auth: {user},
+    profile: {profile}
+
+}) => {
+    useEffect(() => {
+        getCurrentProfile();
+    }, [getCurrentProfile]);
+}
     return (
         <Container>
             <NavBar />
