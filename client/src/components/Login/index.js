@@ -9,11 +9,16 @@ import {
   } from "semantic-ui-react";
   import axios from "axios";
   import "./style.css";
+  import {Redirect} from 'react-router-dom';
+  import { useHistory } from "react-router-dom";
+
 
 
 function Login() {
   const [email, setEmail] = useState()
   const [password, setPassword] = useState()
+  let history = useHistory()
+
 
   const handleSubmit = (e) => {
       e.preventDefault();
@@ -21,7 +26,8 @@ function Login() {
       axios.post("/api/user/login", user)
       .then(res => {
           console.log(res);
-          window.location = "/dashboard";
+          history.push("/dashboard")
+
       })
   }
 

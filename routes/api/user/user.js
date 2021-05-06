@@ -70,14 +70,14 @@ router.post('/signup', function(req, res){
 router.post("/login", passport.authenticate("local"), (req, res) => {
   const loginUser = {
     email: req.body.email,
-    password: req.body.password,
+    // password: req.body.password,
   };
   res.send(loginUser);
   console.log(loginUser, " authenticated");
 });
 
 // Endpoint to get current user
-router.get("/user", isAuthenticated, (req, res) => {
+router.get("/", isAuthenticated, (req, res) => {
   if (!req.user) {
     res.json({
       error:"User not found"
