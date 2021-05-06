@@ -23,9 +23,12 @@ const ProfileSchema = new Schema(
       type: [String],
       required: true
     },
+    githubusername: {
+      type: String
+    },
     social: {
       facebook: { type: String },
-      twitter: { type: String },
+      linkedin: { type: String },
       youtube: { type: String },
       instagram: { type: String }
     }
