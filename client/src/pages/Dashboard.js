@@ -10,7 +10,7 @@ import "./cssPage/dashboard.css";
 const Dashboard = () => {
     const [name, setUserName] = useState();
     const [userId, setUserId] = useState();
-
+    const [profilePic, setProfilePic] = useState();
     useEffect(() => {
         loadUser();
     }, []);
@@ -21,6 +21,7 @@ const Dashboard = () => {
             console.log(results.data);
             setUserName(results.data.name);
             setUserId(results.data._id);
+            setProfilePic(results.data.profilePic)
         })
         .catch((err) => console.log(err));
     }
@@ -67,7 +68,7 @@ const Dashboard = () => {
                     centered
                     circular
                     size="small"
-                    src="/static/images/wireframe/square-image.png"
+                    src={profilePic}
                   />
                   <Label basic size="large">
                     Profile Picture

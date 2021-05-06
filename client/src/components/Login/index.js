@@ -9,7 +9,6 @@ import {
   } from "semantic-ui-react";
   import axios from "axios";
   import "./style.css";
-  import {Redirect} from 'react-router-dom';
   import { useHistory } from "react-router-dom";
 
 
@@ -26,7 +25,7 @@ function Login() {
       axios.post("/api/user/login", user)
       .then(res => {
           console.log(res);
-          history.push("/dashboard")
+          history.push("/dashboard");
 
       })
   }

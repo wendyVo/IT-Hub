@@ -9,12 +9,16 @@ import {
     Segment
   } from "semantic-ui-react";
   import {Link} from "react-router-dom";
+  import { useHistory } from "react-router-dom";
+  import FileUploader from "../Common/FileUploader"
 
 function SignUp() {
     const [username, setUsername] = useState();
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
     const [password2, setPassword2] = useState();
+    const [selectedFile, setSelectedFile] = useState(null);
+    let history = useHistory()
    
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -23,21 +27,30 @@ function SignUp() {
           email,
           password,
           password2,
+          selectedFile
         };
 
+        // const formData = new FormData();
+        // FormData.append("file", selectedFile)
+
         axios.post("/api/user/signup", user).then((res) => {
-            window.location = "/login";
+          history.push("/login");
           });
         };
     return (
-        <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
+        <Grid textAlign='center' style={{ height: '150vh'}} verticalAlign='middle'>
         <Grid.Column style={{ maxWidth: 450 }}>
           <Header as='h2' color='teal' textAlign='center'>
             {/* <Image src='/logo.png' /> Log-in to your account */}
             Create a new Account
           </Header>
           <Form size='large' onSubmit={handleSubmit}>
-            <Segment stacked>
+          <Segment stacked>
+          {/* <FileUploader
+          onFileSelectSuccess={(file) => setSelectedFile(file)}
+          onFileSelectError={({ error }) => alert(error)}
+            /> */}
+            
                 <Form.Input label = "UserName" type="text" onChange={(e) => setUsername(e.target.value)} placeholder="Full Name" required />
                 <Form.Input label="Email address"
                 //  error={{

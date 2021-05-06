@@ -13,7 +13,8 @@ router.post('/signup', function(req, res){
         name: req.body.username,
         email: req.body.email,
         username: req.body.username,
-        password: req.body.password
+        password: req.body.password,
+        profilePic: req.body.profilePic
       });
   
       User.createUser(newUser, function(err, user){
@@ -84,7 +85,7 @@ router.get("/", isAuthenticated, (req, res) => {
     });
   } else {
     User.findById({ _id: req.user.id })
-      .populate("images")
+      .populate("User")
       .then((data) => {
         res.json(data);
       });
