@@ -2,8 +2,15 @@ const passport = require("../../../config/passport");
 const router = require("express").Router();
 const isAuthenticated = require("../../../config/isAuthenticated");
 const User = require("../../../models/user");
-// Register User
-router.post('/signup', function(req, res){
+const {signup } = require("../../../controllers/userController");
+
+//validators
+const {runValidation} = require("../../../validators");
+const {userSignupValidator} = require("../../../validators/auth");
+
+
+//Register User
+router.post('/signup', userSignupValidator, runValidation, function(req, res){
   console.log("Signup route", req.body)
     var password = req.body.password;
     var password2 = req.body.password2;
@@ -25,6 +32,8 @@ router.post('/signup', function(req, res){
       res.status(500).send("{errors: \"Passwords don't match\"}").end()
     }
   });
+
+// router.post('/signup', userSignupValidator, runValidation, signup);
 
     // //if too many errors, display errors
     // if(errors.length > 0) {

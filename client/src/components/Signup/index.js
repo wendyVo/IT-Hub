@@ -13,7 +13,8 @@ import {
   import FileUploader from "../Common/FileUploader"
 
 function SignUp() {
-    const [username, setUsername] = useState();
+    const [name, setName] = useState();
+    // const [username, setUsername] = useState();
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
     const [password2, setPassword2] = useState();
@@ -23,7 +24,8 @@ function SignUp() {
     const handleSubmit = (e) => {
         e.preventDefault();
         const user = {
-          username,
+          name,
+          // username,
           email,
           password,
           password2,
@@ -50,8 +52,8 @@ function SignUp() {
           onFileSelectSuccess={(file) => setSelectedFile(file)}
           onFileSelectError={({ error }) => alert(error)}
             /> */}
-            
-                <Form.Input label = "UserName" type="text" onChange={(e) => setUsername(e.target.value)} placeholder="Full Name" required />
+                <Form.Input label = "Full Name" type="text" onChange={(e) => setName(e.target.value)} placeholder="Full Name" required />
+                {/* <Form.Input label = "UserName" type="text" onChange={(e) => setUsername(e.target.value)} placeholder="UserName" required /> */}
                 <Form.Input label="Email address"
                 //  error={{
                 //     content: 'Please enter a valid email address',
@@ -59,8 +61,8 @@ function SignUp() {
                 //   }} 
                 onChange={(e) => setEmail(e.target.value)}
                   placeholder="E-mail"  />
-                <Form.Input label="Password"  onChange={(e) => setPassword(e.target.value)} placeholder="Password" type="password" />
-                <Form.Input label="Confirm Password"  onChange={(e) => setPassword2(e.target.value)} placeholder="Confirm Password" type="password" />
+                <Form.Input label="Password"  onChange={(e) => setPassword(e.target.value)} placeholder="Password" type="password" required />
+                <Form.Input label="Confirm Password"  onChange={(e) => setPassword2(e.target.value)} placeholder="Confirm Password" type="password" required/>
               <Button color='teal' fluid size='large'>
                Sign Up
               </Button>
