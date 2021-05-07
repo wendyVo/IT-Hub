@@ -5,11 +5,13 @@ import {
     Grid,
     Header,
     Message,
-    Segment
+    Segment,
+    Image
   } from "semantic-ui-react";
   import axios from "axios";
   import "./style.css";
   import { useHistory } from "react-router-dom";
+  import logo from "../../assets/images/logo.png"
 
 
 
@@ -34,7 +36,7 @@ function Login() {
 <Grid className="login-container" textAlign="center" verticalAlign="middle"  >
 <Grid.Column style={{ maxWidth: 450 }}>
   <Header as="h2" color="teal" textAlign="center">
-    <img src="/static/images/logo.png" alt="logo" className="image" />{" "}
+    <Image src={logo} size="huge" alt="logo" className="image" />{" "}
     Log-in to your account
   </Header>
   <Form size="large" onSubmit={handleSubmit}>

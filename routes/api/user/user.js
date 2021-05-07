@@ -2,11 +2,12 @@ const passport = require("../../../config/passport");
 const router = require("express").Router();
 const isAuthenticated = require("../../../config/isAuthenticated");
 const User = require("../../../models/user");
-const {signup } = require("../../../controllers/userController");
+const jwt = require('jsonwebtoken');
+const expressJwt = require('express-jwt');
 
 //validators
 const {runValidation} = require("../../../validators");
-const {userSignupValidator} = require("../../../validators/auth");
+const {userSignupValidator, userSigninValidator} = require("../../../validators/auth");
 
 
 //Register User
@@ -17,11 +18,11 @@ router.post('/signup', userSignupValidator, runValidation, function(req, res){
   
     if (password == password2){
       var newUser = new User({
-        name: req.body.username,
+        name: req.body.name,
         email: req.body.email,
         username: req.body.username,
         password: req.body.password,
-        profilePic: req.body.profilePic
+        profilePicUrl: req.body.profilePicUrl
       });
   
       User.createUser(newUser, function(err, user){
@@ -33,51 +34,9 @@ router.post('/signup', userSignupValidator, runValidation, function(req, res){
     }
   });
 
-// router.post('/signup', userSignupValidator, runValidation, signup);
-
-    // //if too many errors, display errors
-    // if(errors.length > 0) {
-    //   res.render("signup", {
-    //     errors,
-    //     name,
-    //     email,
-    //     password,
-    //     password2
-    //   });
-    // } else {
-    //   //Validation passed
-    //   User.findOne({ email: email})
-    //     .then(user => {
-    //       if(user) {
-    //         //Users exists
-    //         errors.push({ msg: "Email is already registered! "})
-    //         res.render("signup", {
-    //           errors,
-    //           name,
-    //           email,
-    //           password,
-    //           password2
-    //         });
-    //       } else {
-    //         const newUser = new User({
-    //           name: req.body.name,
-    //           email: req.body.email,
-    //           username: req.body.username,
-    //           password: req.body.password
-    //         });
-    //         User.createUser(newUser, function(err, user){
-    //           if(err) throw err;
-    //           res.send(user).end()
-    //         });
-    //       }
-    //     })
-    // }
-  
-
-
-
   // Endpoint to login
-router.post("/login", passport.authenticate("local"), (req, res) => {
+router.post("/login", passport.authenticate("local"),userSigninValidator,runValidation,
+  (req, res) => {
   const loginUser = {
     email: req.body.email,
     // password: req.body.password,
@@ -96,7 +55,11 @@ router.get("/", isAuthenticated, (req, res) => {
     User.findById({ _id: req.user.id })
       .populate("User")
       .then((data) => {
-        res.json(data);
+        const loadUser = {
+          name: data.name,
+          email: data.email
+        }
+        res.json(loadUser);
       });
     console.log("res on server", req.user);
     // res.json(req.user);

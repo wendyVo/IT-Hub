@@ -2,7 +2,12 @@ import React, { useRef } from "react";
 import { useStoreContext } from "../../utils/GlobalState";
 import { ADD_POST, LOADING } from "../../utils/actions";
 import API from "../../utils/API";
-import {Container , Header} from "semantic-ui-react";
+import {Container , Header, Form, Button} from "semantic-ui-react";
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
+import { QuillFormats, QuillModules } from "../Common/quill";
+import DashboardLayout from "../DashboardLayout";
+
 
 function CreatePostForm() {
   const titleRef = useRef();
@@ -31,17 +36,31 @@ function CreatePostForm() {
   };
 
   return (
+    <DashboardLayout>
     <Container>
      <Header as="h2">Create a blog's blog</Header>
-      <form className="form-group mt-5 mb-5" onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit}>
+        <Form.Field>
+        <label>Post Title</label>
         <input className="form-control mb-5" required ref={titleRef} placeholder="Title" />
-        <textarea className="form-control mb-5" required ref={bodyRef} placeholder="Body" />
-        <input className="form-control mb-5" ref={authorRef} placeholder="Screen name" />
-        <button className="btn btn-success mt-3 mb-5" disabled={state.loading} type="submit">
+        </Form.Field>
+       
+        <ReactQuill modules={QuillModules}
+                    formats={QuillFormats}
+                    required ref={bodyRef} 
+                    style={{height:"150px"}}
+                    placeholder="Write something amazing..." />
+        
+        <Form.Field style={{marginTop: "5rem"}}>
+          <label>Posted By</label>
+        <input  ref={authorRef} placeholder="Screen name" />
+        </Form.Field>
+        <Button className="btn btn-success mt-3 mb-5" disabled={state.loading} type="submit">
           Save Post
-        </button>
-      </form>
+        </Button>
+      </Form>
     </Container>
+    </DashboardLayout>
   );
 }
 

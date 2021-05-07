@@ -5,7 +5,7 @@ import NavBar from "../components/NavBar";
 import  getProfileById  from "../utils/profileAction";
 import ProfileTop from "../components/Profile/ProfileTop"
 import axios from "axios";
-import "./cssPage/dashboard.css";
+import DashboardLayout from "../components/DashboardLayout";
 
 const Dashboard = () => {
     const [name, setUserName] = useState();
@@ -27,36 +27,7 @@ const Dashboard = () => {
     }
 
     return (
-        <div style={{
-            marginTop: "4em",
-            position:"relative"
-          }}>
-        <Grid padded>
-          <Grid.Column
-            mobile={3}
-            tablet={3}
-            computer={3}
-            only="tablet computer"
-            id="sidebar"
-          >
-            <Menu vertical borderless fluid text>
-              <Menu.Item active as="a">
-              <Link style={{color: "#ffffff"}} to="/create-post">Create Post</Link>
-              </Menu.Item>
-              <Menu.Item as="a">Edit Post</Menu.Item>
-              <Menu.Item as="a">Update Post</Menu.Item>
-              <Menu.Item as="a">Delete Post</Menu.Item>
-              <Divider hidden />
-            </Menu>
-          </Grid.Column>
-          <Grid.Column
-            mobile={13}
-            tablet={13}
-            computer={13}
-            floated="right"
-            id="content"
-          >
-            <Grid padded>
+          <DashboardLayout>
               <Grid.Row>
                 <Header dividing size="huge" as="h1">
                   {name }'s Dashboard
@@ -82,18 +53,7 @@ const Dashboard = () => {
                   </Label>
                   <p>Something about myself</p>
                 </Grid.Column>
-                {/* <Grid.Column mobile={8} tablet={4} computer={4}>
-                  <Image
-                    centered
-                    circular
-                    size="small"
-                    src="/static/images/wireframe/square-image.png"
-                  />
-                  <Label basic size="large">
-                    Label
-                  </Label>
-                  <p>Something else</p>
-                </Grid.Column> */}
+                
               </Grid.Row>
               <Divider section hidden />
               <Grid.Row>
@@ -105,12 +65,8 @@ const Dashboard = () => {
                 <p>Social Link</p>
                     
               </Grid.Row>
-            </Grid>
-          </Grid.Column>
-        </Grid>
-        </div>
+            </DashboardLayout>
     )
 }
-
 
 export default Dashboard;
