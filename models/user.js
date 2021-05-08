@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+const {ObjectId} = mongoose.Schema.Types;
 var bcrypt = require('bcryptjs');
 
 // User Schema
@@ -27,12 +28,17 @@ var UserSchema = mongoose.Schema({
     required:true
   },
   profilePicUrl: {
-    type: String
+    type: String,
+    default: "https://res.cloudinary.com/do2uj1ht0/image/upload/v1620430777/default-user_pfyrgp.png"
   },
   date: {
     type: Date,
     default: Date.now
-  }
+  },
+  resetToken:String,
+  expireToken:Date,
+  followers:[{type:ObjectId,ref:"User"}],
+  following:[{type:ObjectId,ref:"User"}]
 });
 
 const User = module.exports = mongoose.model('User', UserSchema);

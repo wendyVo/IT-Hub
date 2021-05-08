@@ -1,5 +1,5 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import React, {useContext} from "react";
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import Home from "./pages/Home";
 import Detail from "./pages/Detail";
 import NoMatch from "./pages/NoMatch";
@@ -10,10 +10,14 @@ import SignUpPage from "./pages/SignupPage";
 import Dashboard from "./pages/Dashboard";
 import CreatePostForm from "./components/CreatePost";
 import NavBar from "./components/NavBar";
+import { UserContext } from "./utils/UserContext";
 
 
 function App() {
+  const [user] = useContext(UserContext)
+
   return (
+    
     <Router>
       <div>
         <StoreProvider>
@@ -22,17 +26,23 @@ function App() {
             <Route exact path="/" component={Home} />
             <Route exact path="/home" component={Home} />
             {/* /* <Route exact path="/favorites" component={FavoritesList} /> */}
-            <Route exact path="/posts/:id" component={Detail} />
+            {/* <Route exact path="/posts/:id" component={Detail} /> */}
             <Route exact path="/login" component={LoginPage} />
             <Route exact path="/signup" component={SignUpPage} />
-            <Route exact path="/dashboard" component={Dashboard} />
+            {/* <Route exact path="/dashboard" component={Dashboard} /> */}
             <Route exact path="/create-post" component={CreatePostForm}/>
              {/* <Route component={NoMatch} />  */}
-            
+            <Route
+              // {...rest}
+              render={(props) => user
+              ? <Dashboard {...props} />
+              : <Redirect to={{pathname: '/login', state: {from: props.location}}} />}
+            />
           </Switch>
         </StoreProvider>
       </div>
     </Router>
+    
   );
 }
 

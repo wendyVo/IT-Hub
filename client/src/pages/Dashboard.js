@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import {Container, Header, Button, Grid, Menu, Divider, Label, Image} from "semantic-ui-react";
 import {Link} from "react-router-dom";
 import NavBar from "../components/NavBar";

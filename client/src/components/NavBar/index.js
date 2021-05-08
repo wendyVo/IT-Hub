@@ -1,125 +1,121 @@
-import React, {Component} from "react";
-import { Container, Icon, Menu, Grid, Button } from "semantic-ui-react";
+import React, {useState, useContext} from "react";
+import {
+    Container,
+    Icon,
+    Menu,
+    Grid,
+    Button
+} from "semantic-ui-react";
 import {Link} from "react-router-dom";
 import "./style.css";
 import axios from "axios";
+import {UserContext} from "../../utils/UserContext";
 
-class NavBar extends Component {
-  state = {
-    dropdownMenuStyle: {
-      display: "none"
-    }
-  };
-  
+// class NavBar extends Component {
+function NavBar() {
 
-  handleToggleDropdownMenu = () => {
-    let newState = Object.assign({}, this.state);
-    if (newState.dropdownMenuStyle.display === "none") {
-      newState.dropdownMenuStyle = { display: "flex" };
-    } else {
-      newState.dropdownMenuStyle = { display: "none" };
-    }
+    const [dropdownMenuStyle, setDropMenuStyle] = useState({display: "none"});
+    const [user, setUser] = useContext(UserContext);
 
-    this.setState(newState);
-  };
-  handleSignOut = () => {
-    axios.get("/api/user/logout")
-    .then(res => {
-      console.log(res);
-      window.location = "/";
-  })
-  }
+    const handleToggleDropdownMenu = () => { // let newState = Object.assign({}, this.state);
+        if (dropdownMenuStyle.display === "none") {
+            setDropMenuStyle({display: "flex"});
+        } else {
+            setDropMenuStyle({display: "none"});
+        }
 
-  render() {
-    return (
-      <React.Fragment>
-      <Grid padded className="tablet computer only">
-          <Container>
-            <Menu borderless inverted fluid fixed="top">
-              <Menu.Item header as="a">
-                IT Hub
-              </Menu.Item>
-
-              <Menu.Item as="a">
-              <Link to="/home" >Home</Link>
-              </Menu.Item>
-              <Menu.Item as="a">Post</Menu.Item>
-              <Menu.Item as="a" >
-                <Link to="/dashboard">Dashboard</Link>
-              </Menu.Item>
-              
-              {/* <Dropdown text="Dropdown" className="item">
-                <Dropdown.Menu>
-                  <Dropdown.Item as="a">Action</Dropdown.Item>
-                  <Dropdown.Item as="a">Another action</Dropdown.Item>
-                  <Dropdown.Item as="a">Something else here</Dropdown.Item>
-                  <Dropdown.Divider />
-                  <Dropdown.Header>Navbar header</Dropdown.Header>
-                  <Dropdown.Item as="a">Seperated link</Dropdown.Item>
-                  <Dropdown.Item as="a">One more seperated link</Dropdown.Item>
-                </Dropdown.Menu>
-              </Dropdown> */}
-               <Menu.Item position="right">
-                  <Button as="a" inverted>
-                    <Link to="/login" >Log in</Link>
-                  </Button>
-                  <Button
-                    as="a"
-                    inverted
-                    style={{ marginLeft: "0.5em" }}
-                  >
-                    <Link to="/signup" >Sign Up</Link>
-                  </Button>
-                  <Button
-                    as="a"
-                    inverted
-                    style={{ marginLeft: "0.5em" }}
-                  >
-                    <a onClick={this.handleSignOut} >Sign Out</a>
-                  </Button>
-                </Menu.Item>
-            </Menu>
-          </Container>
-        </Grid>
-        <Grid className="mobile only">
-          <Menu inverted borderless fluid size="huge" fixed="top">
-            <Menu.Item header as="a">
-              Project Name
-            </Menu.Item>
-            <Menu.Menu position="right">
-              <Menu.Item>
-                <Button
-                  icon
-                  basic
-                  inverted
-                  toggle
-                  onClick={this.handleToggleDropdownMenu}
-                >
-                  <Icon name="content" />
+        // this.setState(newState);
+    };
+    const renderLoggin = () => {
+        return (
+            <>
+                <Button as="a" inverted>
+                    <Link to="/login">Log in</Link>
                 </Button>
-              </Menu.Item>
-            </Menu.Menu>
-            <Menu
-              vertical
-              borderless
-              inverted
-              fluid
-              style={this.state.dropdownMenuStyle}
-            >
-              <Menu.Item active as="a">
-                Home
-              </Menu.Item>
-              <Menu.Item as="a">About</Menu.Item>
-              <Menu.Item as="a">Contact</Menu.Item>
-              <Menu.Item as="a">Login</Menu.Item>
-              <Menu.Item as="a">SignUp</Menu.Item>
-              
-            </Menu>
-          </Menu>
-        </Grid>
+                <Button as="a" inverted
+                    style={
+                        {marginLeft: "0.5em"}
+                }>
+                    <Link to="/signup">Sign Up</Link>
+                </Button>
+            </>
+        )
+    }
+
+    const renderLogout = () => {
+      return (
+        
+        <Button as="a" inverted
+            style={
+            {marginLeft: "0.5em"}}>
+            <a onClick={handleSignOut}>Sign Out</a>
+        </Button>
+      )
+    }
+    const handleSignOut = () => {
+        axios.get("/api/user/logout").then(res => {
+            console.log(res);
+            setUser(null);
+            window.location = "/";
+        })
+    }
+
+    return (
+
+        <React.Fragment>
+            <Grid padded className="tablet computer only">
+                <Container>
+                    <Menu borderless inverted fluid fixed="top">
+                        <Menu.Item header as="a">
+                            IT Hub
+                        </Menu.Item>
+
+                        <Menu.Item as="a">
+                            <Link to="/home">Home</Link>
+                        </Menu.Item>
+                        <Menu.Item as="a">Post</Menu.Item>
+                        <Menu.Item as="a">
+                            <Link to="/dashboard">Dashboard</Link>
+                        </Menu.Item>
+
+                        <Menu.Item position="right">
+                          {/* {console.log("user: ", `${user.name}`)} */}
+                      {user ? renderLogout() : renderLoggin()}
+
+                        </Menu.Item>
+                    </Menu>
+                </Container>
+            </Grid>
+            <Grid className="mobile only">
+                <Menu inverted borderless fluid size="huge" fixed="top">
+                    <Menu.Item header as="a">
+                        Project Name
+                    </Menu.Item>
+                    <Menu.Menu position="right">
+                        <Menu.Item>
+                            <Button icon basic inverted toggle
+                                onClick={handleToggleDropdownMenu}>
+                                <Icon name="content"/>
+                            </Button>
+                        </Menu.Item>
+                    </Menu.Menu>
+                    <Menu vertical borderless inverted fluid
+                        style={dropdownMenuStyle}>
+                        <Menu.Item active as="a">
+                            Home
+                        </Menu.Item>
+                        <Menu.Item as="a">About</Menu.Item>
+                        <Menu.Item as="a">Contact</Menu.Item>
+                        <Menu.Item as="a">Login</Menu.Item>
+                        <Menu.Item as="a">SignUp</Menu.Item>
+
+                    </Menu>
+
+
+                </Menu>
+            </Grid>
         </React.Fragment>
     )
-  }
 
 }
 

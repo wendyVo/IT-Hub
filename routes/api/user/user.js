@@ -20,7 +20,6 @@ router.post('/signup', userSignupValidator, runValidation, function(req, res){
       var newUser = new User({
         name: req.body.name,
         email: req.body.email,
-        username: req.body.username,
         password: req.body.password,
         profilePicUrl: req.body.profilePicUrl
       });
@@ -30,7 +29,7 @@ router.post('/signup', userSignupValidator, runValidation, function(req, res){
         res.send(user).end()
       });
     } else{
-      res.status(500).send("{errors: \"Passwords don't match\"}").end()
+      res.status(500).send("{error: \"Passwords don't match\"}").end()
     }
   });
 
@@ -69,7 +68,9 @@ router.get("/", isAuthenticated, (req, res) => {
 // Endpoint to logout
 router.get("/logout", (req, res) => {
   req.logout();
+  res.redirect("/")
   res.send(null);
+
 });
 
 module.exports = router;

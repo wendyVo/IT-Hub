@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import {
     Button,
     Form,
@@ -11,13 +11,15 @@ import {
   import axios from "axios";
   import "./style.css";
   import { useHistory } from "react-router-dom";
-  import logo from "../../assets/images/logo.png"
+  import logo from "../../assets/images/logo.png";
+  import {UserContext} from "../../utils/UserContext";
 
 
 
 function Login() {
   const [email, setEmail] = useState()
   const [password, setPassword] = useState()
+  const [user, setUser] = useContext(UserContext)
   let history = useHistory()
 
 
@@ -26,7 +28,8 @@ function Login() {
       const user = {email, password}        
       axios.post("/api/user/login", user)
       .then(res => {
-          console.log(res);
+          // console.log("login user: ",res);
+          setUser(res);
           history.push("/dashboard");
 
       })
