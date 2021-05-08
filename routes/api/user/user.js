@@ -56,7 +56,8 @@ router.get("/", isAuthenticated, (req, res) => {
       .then((data) => {
         const loadUser = {
           name: data.name,
-          email: data.email
+          email: data.email,
+          profilePicUrl: data.profilePicUrl
         }
         res.json(loadUser);
       });

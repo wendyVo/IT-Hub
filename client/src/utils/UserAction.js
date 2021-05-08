@@ -5,7 +5,7 @@ import { GET_PROFILE,
     CLEAR_PROFILE,
     ACCOUNT_DELETED,
     GET_REPOS,
-    NO_REPOS} from "../utils/actions";
+    NO_REPOS} from "./actions";
     import { setAlert } from '../actions/alert';
 
 // Get current users profile

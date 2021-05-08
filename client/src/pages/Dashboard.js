@@ -1,8 +1,7 @@
-import React, {useContext, useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Container, Header, Button, Grid, Menu, Divider, Label, Image} from "semantic-ui-react";
 import {Link} from "react-router-dom";
 import NavBar from "../components/NavBar";
-import  getProfileById  from "../utils/profileAction";
 import ProfileTop from "../components/Profile/ProfileTop"
 import axios from "axios";
 import DashboardLayout from "../components/DashboardLayout";
@@ -11,6 +10,7 @@ const Dashboard = () => {
     const [name, setUserName] = useState();
     const [userId, setUserId] = useState();
     const [profilePic, setProfilePic] = useState();
+    
     useEffect(() => {
         loadUser();
     }, []);
@@ -21,7 +21,7 @@ const Dashboard = () => {
             console.log(results.data);
             setUserName(results.data.name);
             setUserId(results.data._id);
-            setProfilePic(results.data.profilePic)
+            setProfilePic(results.data.profilePicUrl);
         })
         .catch((err) => console.log(err));
     }
@@ -30,7 +30,7 @@ const Dashboard = () => {
           <DashboardLayout>
               <Grid.Row>
                 <Header dividing size="huge" as="h1">
-                  {name }'s Dashboard
+                  {name}'s Dashboard
                 </Header>
               </Grid.Row>
               <Grid.Row textAlign="center">
@@ -38,7 +38,7 @@ const Dashboard = () => {
                   <Image
                     centered
                     circular
-                    size="small"
+                    size="large"
                     src={profilePic}
                   />
                   <Label basic size="large">
@@ -54,6 +54,7 @@ const Dashboard = () => {
                   <p>Something about myself</p>
                 </Grid.Column>
                 
+                
               </Grid.Row>
               <Divider section hidden />
               <Grid.Row>
@@ -64,7 +65,7 @@ const Dashboard = () => {
               <Grid.Row>
                 <p>Social Link</p>
                     
-              </Grid.Row>
+              </Grid.Row> 
             </DashboardLayout>
     )
 }

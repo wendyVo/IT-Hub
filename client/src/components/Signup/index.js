@@ -33,7 +33,7 @@ function SignUp() {
         data.append("file", image);
         data.append("upload_preset", "ITHubProject");
       
-        const res = await fetch("	https://api.cloudinary.com/v1_1/wendyvo/image/upload", {
+        const res = await fetch("https://api.cloudinary.com/v1_1/wendyvo/image/upload", {
         method: "POST",
         body: data
     })
