@@ -45,7 +45,7 @@ function NavBar() {
     const renderLogout = () => {
       return (
         
-        <Button as="a" inverted
+        <Button inverted
             style={
             {marginLeft: "0.5em"}}>
             <a onClick={handleSignOut}>Sign Out</a>

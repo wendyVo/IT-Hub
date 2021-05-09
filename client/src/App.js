@@ -26,10 +26,9 @@ function App() {
             <Route exact path="/" component={Home} />
             <Route exact path="/home" component={Home} />
             {/* /* <Route exact path="/favorites" component={FavoritesList} /> */}
-            {/* <Route exact path="/posts/:id" component={Detail} /> */}
+            <Route exact path="/posts/:id" component={Detail} />
             <Route exact path="/login" component={LoginPage} />
             <Route exact path="/signup" component={SignUpPage} />
-            {/* <Route exact path="/dashboard" component={Dashboard} /> */}
             <Route exact path="/create-post" component={CreatePostForm}/>
              {/* <Route component={NoMatch} />  */}
             <Route

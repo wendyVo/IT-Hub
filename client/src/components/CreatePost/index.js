@@ -55,7 +55,7 @@ function CreatePostForm() {
           <label>Posted By</label>
         <input  ref={authorRef} placeholder="Screen name" />
         </Form.Field>
-        <Button className="btn btn-success mt-3 mb-5" disabled={state.loading} type="submit">
+        <Button className="btn btn-success mt-3 mb-5"  type="submit" disabled={state.loading}>
           Save Post
         </Button>
       </Form>

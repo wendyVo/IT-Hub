@@ -44,7 +44,6 @@ const Dashboard = () => {
                   <Label basic size="large">
                     Profile Picture
                   </Label>
-                  <p>Something else</p>
                 </Grid.Column>
                 <Grid.Column mobile={8} tablet={4} computer={12}>
                     {/* //User Image */}
