@@ -1,11 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useContext } from "react";
 import { ListItem, List } from "../List";
 import { useStoreContext } from "../../utils/GlobalState";
 import { REMOVE_POST, UPDATE_POSTS, LOADING } from "../../utils/actions";
 import API from "../../utils/API";
+import DeleteButton from "../DeleteButton";
+import {UserContext} from "../../utils/UserContext";
 
 function PostsList() {
   const [state, dispatch] = useStoreContext();
+  const [user, setUser] = useContext(UserContext);
 
   const removePost = id => {
     API.deletePost(id)
@@ -41,6 +44,7 @@ function PostsList() {
       {state.posts.length ? (
         <List>
           {state.posts.map(post => (
+            <>
             <ListItem 
             id={post._id}
             key={post._id} 
@@ -48,8 +52,15 @@ function PostsList() {
             author= {post.author}
             body= {post.body}
             date= {post.date}>
-              {/* <DeleteBtn onClick={() => removePost(post._id)} /> */}
+              {user ? (
+                <DeleteButton onClick={() => removePost(post._id)} />
+              )
+              
+              : ("")}
+              
             </ListItem>
+            <DeleteButton onClick={() => removePost(post._id)} />
+            </>
           ))}
         </List>
       ) : (

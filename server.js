@@ -10,6 +10,7 @@ var session = require('express-session');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 const PORT = process.env.PORT || 3001;
+require("dotenv").config();
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));

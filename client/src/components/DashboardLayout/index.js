@@ -21,6 +21,9 @@ function DashboardLayout({children}) {
               <Menu.Item active as="a">
               <Link style={{color: "#ffffff"}} to="/create-post">Create Post</Link>
               </Menu.Item>
+              <Menu.Item >
+              <Link to="/favorites">View Favorites</Link>
+              </Menu.Item>
               <Menu.Item as="a">Edit Post</Menu.Item>
               <Menu.Item as="a">Update Post</Menu.Item>
               <Menu.Item as="a">Delete Post</Menu.Item>

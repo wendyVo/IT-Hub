@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 import API from "../utils/API";
 import { useStoreContext } from "../utils/GlobalState";
 import { SET_CURRENT_POST, ADD_FAVORITE, REMOVE_FAVORITE } from "../utils/actions";
-import {Container, Header} from "semantic-ui-react";
-
+import {Container, Header , Popup, Icon, Grid, Image} from "semantic-ui-react";
+import favorite from "../assets/icons/favorite.svg"
 const Detail = props => {
   const [state, dispatch] = useStoreContext();
 
@@ -29,14 +29,46 @@ const Detail = props => {
 
   return (
     <>{state.currentPost ? (
-      <>
+      
      
         <Container text style={{ marginTop: '7em' }}>
-      <Header as='h1'>{state.currentPost.title} by {state.currentPost.author}</Header>
-      <p>{state.currentPost.body}</p>
-      
+          <Grid celled='internally'>
+            <Grid.Row>
+              <Grid.Column width={13} >
+        <Header as='h1'>{state.currentPost.title}</Header>
+        <h5 style={{color: "grey"}}>by {state.currentPost.author} </h5>
+        <p>{state.currentPost.body}</p>
+        </Grid.Column>
+        <Grid.Column width={3}>
+        {state.favorites.indexOf(state.currentPost) !== -1 ? (
+          <Popup
+          content="Remove from your Favorite"
+          trigger={
+          <Icon
+           name="heart" color="grey" size="large" circular 
+          position="top right"
+          style={{ cursor: "pointer" }}
+          onClick={removeFavorite}
+          />}
+        /> 
+        ) : (
+          <Popup
+          content="Add to your Favorite"
+          trigger={
+          <Icon
+          name="heart" color="red" size="large" circular 
+         alt="Remove from your Favorite"
+         position="top right"
+         style={{ cursor: "pointer" }}
+         onClick={addFavorite} 
+         />}
+         /> 
+        )}
+        </Grid.Column>
+        </Grid.Row>
+      </Grid>
     </Container>
-      </>
+      
     
     ) : (
       <div>loading...</div>

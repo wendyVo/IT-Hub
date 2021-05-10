@@ -22,7 +22,8 @@ function HeaderImage() {
               IT Hub
             </Header>
             <p style={{color: "#ffffff"}}>
-              Places where Developer can share their Posts
+            
+              A place where Developers can <br/> share their thoughts, creative ideas and personal growth with one another
             </p>
             <Button size="large" primary>
               Learn more &raquo;
