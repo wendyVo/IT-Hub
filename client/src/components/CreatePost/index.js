@@ -21,7 +21,7 @@ function CreatePostForm() {
     dispatch({ type: LOADING });
     API.savePost({
       title: titleRef.current.value,
-      body: bodyRef.current.editor.getContents(),
+      body: bodyRef.current.value,
       author: authorRef.current.value
     })
       .then(result => {
@@ -32,7 +32,7 @@ function CreatePostForm() {
       })
       .catch(err => console.log(err));
     console.log(titleRef.current.value);
-    console.log(bodyRef.current.editor.getHtml());
+    console.log(bodyRef.current.editor.getText());
     console.log(authorRef.current.value);
     titleRef.current.value = "";
     bodyRef.current.value = "";
