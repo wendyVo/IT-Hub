@@ -17,16 +17,17 @@ function DashboardLayout({children}) {
             only="tablet computer"
             id="sidebar"
           >
-            <Menu vertical borderless fluid text>
-              <Menu.Item active as="a">
-              <Link style={{color: "#ffffff"}} to="/create-post">Create Post</Link>
+            <Menu vertical borderless fluid text sidebar>
+              <Menu.Item className="sub" >
+              <Link to="/create-post">Create Post</Link>
               </Menu.Item>
               <Menu.Item >
               <Link to="/favorites">View Favorites</Link>
               </Menu.Item>
-              <Menu.Item as="a">Edit Post</Menu.Item>
-              <Menu.Item as="a">Update Post</Menu.Item>
-              <Menu.Item as="a">Delete Post</Menu.Item>
+              <Menu.Item >
+              <Link to="/managePost">Manage Posts</Link>
+              </Menu.Item>
+              
               <Divider hidden />
             </Menu>
           </Grid.Column>

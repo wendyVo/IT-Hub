@@ -74,7 +74,7 @@ function NavBar() {
                             <Link to="/home">Home</Link>
                         </Menu.Item>
                         <Menu.Item as="a">Post</Menu.Item>
-                        <Menu.Item as="a">
+                        <Menu.Item >
                             <Link to="/dashboard">Dashboard</Link>
                         </Menu.Item>
 

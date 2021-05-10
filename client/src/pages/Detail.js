@@ -3,7 +3,7 @@ import API from "../utils/API";
 import { useStoreContext } from "../utils/GlobalState";
 import { SET_CURRENT_POST, ADD_FAVORITE, REMOVE_FAVORITE } from "../utils/actions";
 import {Container, Header , Popup, Icon, Grid, Image} from "semantic-ui-react";
-import favorite from "../assets/icons/favorite.svg"
+
 const Detail = props => {
   const [state, dispatch] = useStoreContext();
 

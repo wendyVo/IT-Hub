@@ -21,6 +21,17 @@ function PostsList() {
       .catch(err => console.log(err));
   };
 
+  const updatePost = id => {
+    API.updatePost(id)
+      .then(() => {
+        dispatch({
+          type: UPDATE_POSTS,
+          _id: id
+        })
+      })
+      .catch(err => console.log(err));
+  }
+
   const getPosts = () => {
     dispatch({ type: LOADING });
     API.getPosts()
@@ -52,16 +63,8 @@ function PostsList() {
             postTitle= {post.title}
             author= {post.author}
             body= {post.body}
-            date= {post.date}>
-             
-              
+            date= {post.date}> 
             </ListItem>
-            {user ? (
-                <DeleteButton onClick={() => removePost(post._id)} />
-              )
-              
-              : ("")}
-            
             </>
           ))}
         </List>

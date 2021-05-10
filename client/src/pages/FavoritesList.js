@@ -4,6 +4,8 @@ import DeleteBtn from "../components/DeleteButton";
 import { Link } from "react-router-dom";
 import { useStoreContext } from "../utils/GlobalState";
 import { REMOVE_FAVORITE, LOADING, UPDATE_FAVORITES } from "../utils/actions";
+import { Grid, Header} from "semantic-ui-react";
+import DashboardLayout from "../components/DashboardLayout";
 
 const FavoritesList = () => {
   const [state, dispatch] = useStoreContext();
@@ -25,29 +27,35 @@ const FavoritesList = () => {
   }, []);
 
   return (
-    <div className="container mb-5 mt-5">
-      <h1 className="text-center">Here's All of Your Favorite Posts</h1>
+    <DashboardLayout>
+      <div style={{padding: "3rem"}}>
+      <Grid.Row>
+      <Header as="h1">Here's All of Your Favorite Posts</Header> 
+      </Grid.Row>
+      <Grid.Row>
       {state.favorites.length ? (
         <List>
-          <h3 className="mb-5 mt-5">Click on a post to view in detail</h3>
+          <Header as="h3">Click on a post to view in detail</Header> 
           {state.favorites.map(post => (
-            <ListItem key={post._id}>
-              <Link to={"/posts/" + post._id}>
-                <strong>
-                  {post.title} by {post.author}
-                </strong>
-              </Link>
-              <DeleteBtn onClick={() => removeFromFavorites(post._id)} />
+            <>
+            <ListItem 
+            id={post._id}
+            key={post._id} 
+            postTitle= {post.title}
+            author= {post.author}
+            body= {post.body}
+            date= {post.date}> 
             </ListItem>
+              <DeleteBtn onClick={() => removeFromFavorites(post._id)} />
+            </>
           ))}
         </List>
       ) : (
         <h3>You haven't added any favorites yet!</h3>
       )}
-      <div className="mt-5">
-        <Link to="home">Back to home</Link>
+      </Grid.Row>
       </div>
-    </div>
+      </DashboardLayout>
   );
 };
 

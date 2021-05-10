@@ -26,3 +26,4 @@ export const QuillFormats = [
     'video',
     'code-block'
 ];
+

@@ -9,6 +9,7 @@ import { QuillFormats, QuillModules } from "../Common/quill";
 import DashboardLayout from "../DashboardLayout";
 
 
+
 function CreatePostForm() {
   const titleRef = useRef();
   const bodyRef = useRef();
@@ -20,7 +21,7 @@ function CreatePostForm() {
     dispatch({ type: LOADING });
     API.savePost({
       title: titleRef.current.value,
-      body: bodyRef.current.value,
+      body: bodyRef.current.editor.getContents(),
       author: authorRef.current.value
     })
       .then(result => {
@@ -30,9 +31,12 @@ function CreatePostForm() {
         });
       })
       .catch(err => console.log(err));
-
+    console.log(titleRef.current.value);
+    console.log(bodyRef.current.editor.getHtml());
+    console.log(authorRef.current.value);
     titleRef.current.value = "";
     bodyRef.current.value = "";
+
   };
 
   return (
@@ -47,10 +51,11 @@ function CreatePostForm() {
        
         <ReactQuill modules={QuillModules}
                     formats={QuillFormats}
-                    required ref={bodyRef} 
+                    required 
+                    ref={bodyRef} 
                     style={{height:"150px"}}
                     placeholder="Write something amazing..." />
-        
+
         <Form.Field style={{marginTop: "5rem"}}>
           <label>Posted By</label>
         <input  ref={authorRef} placeholder="Screen name" />

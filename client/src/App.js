@@ -11,6 +11,7 @@ import Dashboard from "./pages/Dashboard";
 import CreatePostForm from "./components/CreatePost";
 import NavBar from "./components/NavBar";
 import { UserContext } from "./utils/UserContext";
+import ManagePost from "./pages/ManagePost";
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
             <Route exact path="/home" component={Home} />
             <Route exact path="/favorites" component={FavoritesList} />
             <Route exact path="/posts/:id" component={Detail} />
+            <Route exact path="/managePost" component={ManagePost} />
             <Route exact path="/login" component={LoginPage} />
             <Route exact path="/signup" component={SignUpPage} />
             <Route exact path="/create-post" component={CreatePostForm}/>

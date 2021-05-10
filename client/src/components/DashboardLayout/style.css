@@ -22,13 +22,23 @@
     color: white;
     border: none !important;
   }
-  
+
   
   #sidebar .ui.menu > a.item:hover {
-    background-color: #eee;
-    color: #23527c;
+    background-color:  #23527c;
+    color: #eee ;
   }
-  
+  .ui.vertical.text.menu .item {
+    text-align: center;
+    font-size: large;
+    padding-top: 1rem;
+  }
+ 
+  .ui.vertical.text.menu .item:hover {
+    background-color:  #23527c;
+    color: rgb(243, 227, 227) !important ;
+  }
+ 
   #content {
     padding-top: 56px;
     padding-left: 20px;
