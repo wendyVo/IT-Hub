@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {Container, Header, Button, Grid, Menu, Divider, Label, Image} from "semantic-ui-react";
+import {Container, Header, Button, Grid, Menu, Divider, Label, Image, Icon} from "semantic-ui-react";
 import {Link} from "react-router-dom";
 import NavBar from "../components/NavBar";
 import ProfileTop from "../components/Profile/ProfileTop"
@@ -10,6 +10,7 @@ const Dashboard = () => {
     const [name, setUserName] = useState();
     const [userId, setUserId] = useState();
     const [profilePic, setProfilePic] = useState();
+    const [email, setEmail] = useState();
     
     useEffect(() => {
         loadUser();
@@ -22,6 +23,7 @@ const Dashboard = () => {
             setUserName(results.data.name);
             setUserId(results.data._id);
             setProfilePic(results.data.profilePicUrl);
+            setEmail(results.data.email);
         })
         .catch((err) => console.log(err));
     }
@@ -48,9 +50,10 @@ const Dashboard = () => {
                 <Grid.Column mobile={8} tablet={4} computer={12}>
                     {/* //User Image */}
                   <Label basic size="large">
+                  <Icon name="mail"/>
                     Bio
                   </Label>
-                  <p>Something about myself</p>
+                  <p style={{fontSize: "30px"}}>{email}</p>
                 </Grid.Column>
                 
                 

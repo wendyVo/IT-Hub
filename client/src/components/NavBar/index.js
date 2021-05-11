@@ -73,7 +73,7 @@ function NavBar() {
                         <Menu.Item as="a">
                             <Link to="/home">Home</Link>
                         </Menu.Item>
-                        <Menu.Item as="a">Post</Menu.Item>
+                        {/* <Menu.Item as="a">Post</Menu.Item> */}
                         <Menu.Item >
                             <Link to="/dashboard">Dashboard</Link>
                         </Menu.Item>

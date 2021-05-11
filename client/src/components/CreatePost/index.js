@@ -21,7 +21,7 @@ function CreatePostForm() {
     dispatch({ type: LOADING });
     API.savePost({
       title: titleRef.current.value,
-      body: bodyRef.current.value,
+      body: bodyRef.current.editor.getText(),
       author: authorRef.current.value
     })
       .then(result => {

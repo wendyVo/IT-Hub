@@ -17,11 +17,11 @@ export function List({ children }) {
 export function ListItem(props) {
   return (
     <Item>
-    <Item.Image size='tiny' src='https://react.semantic-ui.com/images/wireframe/image.png' />
+    {/* <Item.Image size='tiny' src='https://react.semantic-ui.com/images/wireframe/image.png' /> */}
 
     <Item.Content>
     <Link to={"/posts/" + props.id}>
-      <Item.Header>{props.postTitle}</Item.Header>
+      <Item.Header style={{fontSize: "24px"}}as="a">{props.postTitle}</Item.Header>
       </Link>
       <Item.Meta><Moment format="DD-MM-YYYY">
       {props.date}
@@ -29,7 +29,7 @@ export function ListItem(props) {
       <Item.Description>
         {props.body}
       </Item.Description>
-      <Item.Extra>{props.author}</Item.Extra>
+      <Item.Extra>posted by {props.author}</Item.Extra>
     </Item.Content>
   </Item>
   )
