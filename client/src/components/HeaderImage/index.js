@@ -25,8 +25,8 @@ function HeaderImage() {
             
               A place where Developers can <br/> share their thoughts, creative ideas and personal growth with one another
             </p>
-            <Button size="large" primary>
-              Learn more &raquo;
+            <Button size="large" primary >
+             Login to create post &raquo;
             </Button>
           </Container>
 		  

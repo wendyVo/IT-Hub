@@ -1,70 +1,68 @@
-# Getting Started with Create React App
+# IT Hub
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+  ## Project Overview
+  ![license](https://img.shields.io/badge/license--green.svg)
 
-## Available Scripts
+    IT Hub is a Web app where the developer or anyone can freely create and manage the post about IT or any topic that you would like to share. 
+    However, only register member can perform the management tasks. 
 
-In the project directory, you can run:
+    This is a full stack MERN application with authentication where the user have to create an account and login to create a post. After login the user will be taken to their dashboard page with their profile pictures and information. In their dashboard, they can create a post, remove post, add to Favorite  and remove favorite
 
-### `npm start`
+ ## Motivation for Development
+- An easy to use app 
+- It is not too complicated to use
+- Is a platform for developer to share their posts
+- A Profile page for displaying user’s information
+- A Dashboard for user to manage the post
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+  ## Table of Contents
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+  * [Installation](#installation)
+  * [Usage](#usage)
+  * [License](#license)
+  * [Contributing](#contributing)
+  * [Tests](#tests)
+  * [Questions](#questions)
 
-### `npm test`
+  ## Installation
+- To create a react app, run:
+npx create-react-app my-app
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- In order to run the application, use:
+npm start
 
-### `npm run build`
+  ## Technology used
+- MERN Stacks : MongoDb, Express, React, Node
+- Semantic React
+- Passport for authentication
+- React Quill for rich Text Editor
+- React –particles
+- Cloudinary 
+ 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  ## License
+  This Source Code Form is subject to the terms of the  License. 
+  If a copy of the License was not distributed with this file, You can obtain one at https://opensource.org/licenses
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  ## Link to GitHub:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  [GitHub](https://github.com/wendyVo/IT-Hub.git)
 
-### `npm run eject`
+  ## Link to Deployed Applicaion:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+  [Deployed Application](https://it-hub-0305.herokuapp.com/)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+  ## Screenshots:
+  - Header Banner and navigation of the application
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+  ![header-page](assets/screenshots/headerImage.PNG/)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+  
+  
 
-## Learn More
+  ## Questions
+  For further information please visit my GitHub page:
+  https://github.com/
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+  Or email me directly: 
+  
