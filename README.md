@@ -2,11 +2,11 @@
 
   ## Project Overview
   ![license](https://img.shields.io/badge/license--green.svg)
+</br>
+IT Hub is a Web app where the developer or anyone can freely create and manage the post about IT or any topic that you would like to share. 
+However, only register member can perform the management tasks. 
 
-    IT Hub is a Web app where the developer or anyone can freely create and manage the post about IT or any topic that you would like to share. 
-    However, only register member can perform the management tasks. 
-
-    This is a full stack MERN application with authentication where the user have to create an account and login to create a post. After login the user will be taken to their dashboard page with their profile pictures and information. In their dashboard, they can create a post, remove post, add to Favorite  and remove favorite
+This is a full stack MERN application with authentication where the user have to create an account and login to create a post. After login the user will be taken to their dashboard page with their profile pictures and information. In their dashboard, they can create a post, remove post, add to Favorite  and remove favorite
 
  ## Motivation for Development
 - An easy to use app 
@@ -56,13 +56,21 @@ npm start
   - Header Banner and navigation of the application
 
   ![header-page](assets/screenshots/headerImage.PNG/)
-
+  </br>
+  - List of the post has been created by user
+  ![list-post](assets/screenshots/listPost.PNG/)
+  </br>
+  - Signup form
+  ![signup](assets/screenshots/signup.PNG/)
+  </br>
+  - Dashboard of the user after login
+  ![dashboard](assets/screenshots/dashboard.PNG/)
   
   
 
   ## Questions
-  For further information please visit my GitHub page:
-  https://github.com/
+Please contact me should you have any questions: <br/>
+:email:   Email: uyen199247@gmail.com <br/>
+:octocat: GitHub:  [wendyVo](https://github.com/wendyVo)
 
-  Or email me directly: 
   
